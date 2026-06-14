@@ -1,0 +1,6 @@
+vendor/
+composer.lock
+reports/
+*.tar.gz
+.env
+.DS_Store
