@@ -8,53 +8,15 @@ services:
       - "8082:80"
     environment:
       APP_ENV: production
-      DB_HOST: db-prod
+      DB_HOST: mysql-shared
       DB_PORT: 3306
       DB_NAME: gcsoft_prod
       DB_USER: gcsoft
       DB_PASS: gcsoft123
-    depends_on:
-      db-prod:
-        condition: service_healthy
     networks:
-      - prod-net
-
-  db-prod:
-    image: mysql:8.0
-    container_name: gcsoft_prod_db
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: gcsoft_prod
-      MYSQL_USER: gcsoft
-      MYSQL_PASSWORD: gcsoft123
-    ports:
-      - "3308:3306"
-    volumes:
-      - prod-db-data:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "gcsoft", "-pgcsoft123"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - prod-net
-
-  flyway-prod:
-    image: flyway/flyway:10
-    container_name: gcsoft_prod_flyway
-    command: -url=jdbc:mysql://db-prod:3306/gcsoft_prod -user=gcsoft -password=gcsoft123 -connectRetries=10 migrate
-    volumes:
-      - ../../db/migrations:/flyway/sql
-    depends_on:
-      db-prod:
-        condition: service_healthy
-    networks:
-      - prod-net
-
-volumes:
-  prod-db-data:
+      - gcsoft-net
 
 networks:
-  prod-net:
-    driver: bridge
+  gcsoft-net:
+    external: true
+    name: gcsoft-net
