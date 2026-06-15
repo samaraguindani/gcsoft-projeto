@@ -4,9 +4,7 @@
          bootstrap="vendor/autoload.php"
          colors="true"
          stopOnFailure="false"
-         testdox="true"
-         logfileJunit="reports/junit.xml"
-         coverageClover="reports/coverage.xml">
+         testdox="true">
 
     <testsuites>
         <testsuite name="GCSoft Test Suite">
