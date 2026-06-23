@@ -2,7 +2,7 @@
 
 -- Usuário admin (senha: admin123)
 INSERT INTO usuario (nome, login, senha, situacao) VALUES
-('Administrador', 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ativo');
+('Administrador', 'admin', '$2y$10$apEujDT7e5eYx3DPFzo0UeIwGB1mkegpIx6jBm50bBwEmz6t/8YNO', 'ativo');
 
 -- 10 receitas iniciais
 INSERT INTO receita (nome, descricao, data_registro, custo, tipo_receita) VALUES
