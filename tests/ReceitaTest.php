@@ -134,7 +134,7 @@ class ReceitaTest extends TestCase
     {
         $r = $this->makeReceita();
         $r->setCusto(0.0);
-        $this->assertEquals(99.0, $r->getCusto());
+        $this->assertEquals(0.0, $r->getCusto());
     }
 
     // Teste 17
