@@ -95,7 +95,7 @@ $editRec  = $editId ? $repo->findById($editId) : null;
 <body>
 <div class="env-bar"><?= $envLabel ?> — Sistema de Receitas GCSoft</div>
 <div class="header">
-    <h1>🍰 Gerenciamento de Receitas</h1>
+    <h1>🍰 Gerenciamento de Receitas TOP</h1>
     <div class="header-right">
         Olá, <strong><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></strong>
         <form method="POST"><input type="hidden" name="action" value="logout">
